@@ -23,10 +23,14 @@ function App() {
   // now we create our useState and put our setting in the fetch to grab the data
   const [toyArray, setToyArray] = useState([]);
 
+  function addToy(newToy) {
+    setToyArray([...toyArray, newToy])
+  }
+
   return (
     <>
       <Header />
-      {showForm ? <ToyForm /> : null}
+      {showForm ? <ToyForm onAddToy = {addToy}/> : null}
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
